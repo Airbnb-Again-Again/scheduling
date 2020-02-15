@@ -31,7 +31,7 @@ similar to that one component on airbnb to check availability and book appointme
 ```
 
 `/POST`
-/api/bookings/listing_id/
+/api/listing/:id/bookings
 
 - Add a booking to the schedule
 
@@ -55,7 +55,7 @@ similar to that one component on airbnb to check availability and book appointme
 ## Information expected in response:
 
 - Expecting a response in the form of an object that includes a status code of 200 if successful. Example:
-  {statusCode: 20}
+  {statusCode: 201}
 
 `/PUT`
 /api/listings/:listing_id
@@ -84,8 +84,7 @@ Any of the following that will be updated:
 ## Information expected in response:
 
 - Expecting a response in the form of an object that includes a status code of 200 if successful. Example:
-  {statusCode: 201,
-  updated: true}
+  {statusCode: 201}
 
 `/DELETE`
 /api/listings/:listing_id
@@ -100,3 +99,5 @@ Any of the following that will be updated:
 ## Information expected in response:
 
 - Expecting an empty JSON response (optional: supply information from deleted listing if available, i.e. name)
+
+{statusCode: 200}
