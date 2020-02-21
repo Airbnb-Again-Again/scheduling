@@ -1,8 +1,20 @@
 const fs = require("fs");
-const arrayCsvWriter = require("csv-writer").createArrayCsvWriter;
 const path = require("path");
 const moment = require("moment");
+const pg = require("pg");
+const { Pool } = require("pg");
+var copyFrom = require("pg-copy-streams").from;
+const config = "./congfig.js";
 
+var pool = new Pool();
+pool.connect((err, client, done) => {
+  var stream = client.query(copyFrom("COPY  FROM STDIN"));
+  var fileStream = fs.createReadStream("pSeed1.csv");
+  fileStream.on("error", done);
+  stream.on("error", done);
+  stream.on("end", done);
+  fileStream.pipe(stream);
+});
 const createCsvWriter = require("csv-writer").createArrayCsvWriter;
 const csvWriter = createCsvWriter({
   header: [

@@ -9,7 +9,11 @@
     "seed": "node db/index.js",
     "build": "webpack --watch",
     "react-dev": "webpack-dev-server --watch",
-    "test": "jest --config ./jest.config.json"
+    "test": "jest --config ./jest.config.json",
+    "write-cass": "node --max_old_space_size=16000 ./db/cassandraSeed2.js",
+    "write-listing": "node --max_old_space_size=14000 ./db/listingWriter.js",
+    "write-booking": "node --max_old_space_size=14000 ./db/bookingWriter.js",
+    "write-user": "node --max_old_space_size=14000 ./db/userWriter.js"
   },
   "author": "adrian tran",
   "license": "MIT",
@@ -18,9 +22,12 @@
     "csv-write-stream": "^2.0.0",
     "csv-writer": "^1.6.0",
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
     "moment": "^2.24.0",
     "mongoose": "^5.8.9",
     "path": "^0.12.7",
+    "pg": "^7.18.1",
+    "pg-copy-streams": "^2.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },

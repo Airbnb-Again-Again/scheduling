@@ -2,25 +2,29 @@ const fs = require("fs");
 const arrayCsvWriter = require("csv-writer").createArrayCsvWriter;
 const path = require("path");
 const moment = require("moment");
+const fs = require("fs");
 
-const createCsvWriter = require("csv-writer").createArrayCsvWriter;
-const csvWriter = createCsvWriter({
-  header: [
-    "listing_id",
-    "cost_per_night",
-    "review_count",
-    "rating",
-    "reserved_dates",
-    "reserved_guest",
-    "max_guests",
-    "clean_fee",
-    "service_fee",
-    "occupancy_fee"
-  ],
-  path: "/Users/kevinwgutierrez/hackreactor/SDC/cassandra.csv"
-});
+const writeCass = fs.writeUserStream("cassandra.csv");
+writeCass.write();
+// const createCsvWriter = require("csv-writer").createArrayCsvWriter;
+// const csvWriter = createCsvWriter({
+//   header: [
+//     "listing_id",
+//     "cost_per_night",
+//     "review_count",
+//     "rating",
+//     "reserved_dates",
+//     "reserved_guest",
+//     "max_guests",
+//     "clean_fee",
+//     "service_fee",
+//     "occupancy_fee"
+//   ],
+//   path: "/Users/kevinwgutierrez/hackreactor/SDC/cassandra.csv"
+// });
 
 let dates = [];
+
 
 const makeDates = () => {
   let reservedDates = [];
@@ -32,6 +36,7 @@ const makeDates = () => {
     dates.push(moment(new Date(2020, month, day + i)).format("L"));
   }
   return reservedDates;
+  let endDate = 
 };
 
 for (let d = 0; d < 25; d++) {

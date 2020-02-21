@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const moment = require('moment');
+const mongoose = require("mongoose");
+const moment = require("moment");
 
 mongoose.connect("mongodb://localhost/airBnbSchedulings", {
   useNewUrlParser: true,
@@ -38,34 +38,36 @@ for (let i = 0; i < 100; i++) {
     let month = Math.floor(Math.random() * Math.floor(6));
     let twoOrThree = Math.floor(Math.random() * Math.floor(12));
 
-    for (let i=0; i<twoOrThree; i++) {
-      dates.push(moment(new Date(2020, month, day + i)).format('L'));
+    for (let i = 0; i < twoOrThree; i++) {
+      dates.push(moment(new Date(2020, month, day + i)).format("L"));
     }
     return reservedDates;
-  }
+  };
 
-  for (let d=0; d<25; d++) {
+  for (let d = 0; d < 25; d++) {
     makeDates();
   }
 
   let accommodation = new Accommodation({
     accommodationId: i,
-    costPerNight: [99,89,79,110,99,149,199,299,89,119][Math.floor(Math.random() * Math.floor(9))],
+    costPerNight: [99, 89, 79, 110, 99, 149, 199, 299, 89, 119][
+      Math.floor(Math.random() * Math.floor(9))
+    ],
     reviewsCount: Math.round(Math.random() * Math.floor(500)),
     ratingScore: (4 + Math.random(5)).toFixed(2),
     reservedDates: dates,
-    maxGuests: [3,4,5,6,7][Math.floor(Math.random() * Math.floor(5))],
-    cleaningFee: [29,39,59][Math.floor(Math.random() * Math.floor(3))],
-    serviceFee: [19,29][Math.floor(Math.random() * Math.floor(2))],
-    occupancyFee: [19,29][Math.floor(Math.random() * Math.floor(2))],
+    maxGuests: [3, 4, 5, 6, 7][Math.floor(Math.random() * Math.floor(5))],
+    cleaningFee: [29, 39, 59][Math.floor(Math.random() * Math.floor(3))],
+    serviceFee: [19, 29][Math.floor(Math.random() * Math.floor(2))],
+    occupancyFee: [19, 29][Math.floor(Math.random() * Math.floor(2))]
   });
 
   accommodation.save((err, accommodation) => {
     if (err) {
-      console.log('error: ', err);
+      console.log("error: ", err);
     }
-    console.log(accommodation.accommodationId + ' has successfully been added')
-  })
+    console.log(accommodation.accommodationId + " has successfully been added");
+  });
 }
 
 // DB HELPERS FOR API REQUESTS
@@ -80,4 +82,4 @@ const retrieveCollection = cb => {
 
 module.exports = {
   retrieveCollection
-}
+};
