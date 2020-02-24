@@ -64,5 +64,8 @@ const removeListing = (listing, cb) => {
 };
 
 module.exports = {
-  retrieveCollection
+  addBooking,
+  readBooking,
+  updateBooking,
+  removeListing
 };
