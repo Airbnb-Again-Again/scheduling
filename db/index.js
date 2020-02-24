@@ -1,3 +1,4 @@
+require("newrelic");
 const moment = require("moment");
 const cassandra = require("cassandra-driver");
 const client = new cassandra.Client({
@@ -17,6 +18,7 @@ const makeDates = () => {
   }
   dates = reservedDates;
 };
+``;
 
 // DB HELPERS FOR API REQUESTS
 
