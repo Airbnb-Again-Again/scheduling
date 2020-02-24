@@ -52,3 +52,5 @@ pool.connect((err, client, done) => {
 // create table booking (booking_id integer, guests integer, reserved_start varchar(13), reserved_end varchar(13), primary key (booking_id));
 // create table users (user_id integer UNIQUE, booking_id integer, primary key (user_id, booking_id), foreign key (booking_id) references booking(booking_id));
 // create table owner (owner_id integer, listing_id integer, foreign key (owner_id) references users (user_id))
+
+c;
