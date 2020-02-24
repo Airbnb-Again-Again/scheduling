@@ -15,7 +15,7 @@
     "write-booking": "node --max_old_space_size=14000 ./db/bookingWriter.js",
     "write-user": "node --max_old_space_size=14000 ./db/userWriter.js"
   },
-  "author": "adrian tran",
+  "author": "Kevin Gutierrez",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.2",
