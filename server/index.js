@@ -1,6 +1,11 @@
 const path = require("path");
 const express = require("express");
-const { retrieveCollection } = require("../db/index.js");
+const {
+  addBooking,
+  removeListing,
+  updateBooking,
+  readBooking
+} = require("../db/index.js");
 
 const port = process.env.PORT || 3000;
 
@@ -13,32 +18,32 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../client", "dist")));
 
 app.get("/listings", (req, res) => {
-  retrieveCollection(result => {
+  getListings(result => {
     res.send(result);
   });
 });
 
 app.get("/api/listings/listing_id/:listing_id", (req, res) => {
   let searchedListing = req.params.listing_id;
-  retrieveOne(searchedListing => {
+  readBooking(searchedListing => {
     res.send(result);
   });
 });
 
-app.post("/api/listings/listing_id/:newBooking", (req, res) => {
-  retrieveCollection(result => {
-    res.send(result);
-  });
-});
-
-app.put("/api/listings/listing_id/:listing_id", (req, res) => {
-  retrieveCollection(result => {
+app.put("/api/listings/listing_id/:newBooking", (req, res) => {
+  updateBooking(result => {
     res.send(result);
   });
 });
 
 app.delete("/api/listings/listing_id/:listing_id", (req, res) => {
-  retrieveCollection(result => {
+  removeListing(result => {
+    res.send(result);
+  });
+});
+
+app.post("/api/listings/listing_id/:listing_id", (req, res) => {
+  addBooking(result => {
     res.send(result);
   });
 });
