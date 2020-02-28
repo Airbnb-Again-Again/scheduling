@@ -3,20 +3,20 @@ const path = require("path");
 const moment = require("moment");
 const faker = require("faker");
 
-const scheduleWriter = fs.createWriteStream("../cassandra.csv");
-scheduleWriter.write(
-  "booking_id, host_id, listing_id, cancellation_policy, smoking_allowed, pets_allowed, cost_per_night, reviews_count, guest_name, listing_rating, reserved_start, reserved_end, max_guests,  $reviews_count}cleaning_fee, service_fee, occupancy_fee, adults, children, infants\n",
-  "utf8"
-);
+// const scheduleWriter = fs.createWriteStream("../cassandra.csv");
+// scheduleWriter.write(
+//   "booking_id, host_id, listing_id, cancellation_policy, smoking_allowed, pets_allowed, cost_per_night, reviews_count, guest_name, listing_rating, reserved_start, reserved_end, max_guests,  $reviews_count}cleaning_fee, service_fee, occupancy_fee, adults, children, infants\n",
+//   "utf8"
+// );
 
-const guestWriter = fs.createWriteStream("../guest.csv");
-guestWriter.write("guest_id, name, guest_rating\n", "utf8");
+// const guestWriter = fs.createWriteStream("../guest.csv");
+// guestWriter.write("guest_id, name, guest_rating\n", "utf8");
 
 // create table guest (guest_id int primary key, guest_name text, guest_rating float);
 // copy guest (guest_id, guest_name, guest_rating) from 'guest.csv' with header=true;
 
-const guestNameWriter = fs.createWriteStream("../guestName.csv");
-guestNameWriter.write("guest_name, guest_id\n", "utf8");
+// const guestNameWriter = fs.createWriteStream("../guestName.csv");
+// guestNameWriter.write("guest_name, guest_id\n", "utf8");
 // create table guest_name (guest_name text, guest_id int, primary key(guest_name, guest_id));
 // copy guest_name (guest_name, guest_id) from 'guestName.csv' with header=true;
 
@@ -28,11 +28,11 @@ bookingWriter.write(
 // create table booking (booking_id int, listing_id int, reserved_start text, reserved_end text, guest_id int, guest_name text, host_id int, host_name text, adults int, children int, infants int, primary key(booking_id, listing_id, guest_id));
 // copy booking (booking_id, listing_id, reserved_start, reserved_end, guest_id, guest_name, host_id, host_name, adults, children, infants) from 'booking.csv' with header=true;
 
-const bookingNameWriter = fs.createWriteStream("../bookingName.csv");
-bookingNameWriter.write(
-  "guest_name, guest_id, booking_id, reserved_start, reserved_end, guest_rating, host_id, host_name, listing_id, adults, children, infants\n",
-  "utf8"
-);
+// const bookingNameWriter = fs.createWriteStream("../bookingName.csv");
+// bookingNameWriter.write(
+//   "guest_name, guest_id, booking_id, reserved_start, reserved_end, guest_rating, host_id, host_name, listing_id, adults, children, infants\n",
+//   "utf8"
+// );
 // create table booking_name (guest_name text, guest_id int, booking_id int, listing_id int, reserved_start text, reserved_end text, host_id int, host_name text, guest_rating float, adults int, children int, infants int, primary key (guest_id, reserved_start, host_name));
 // copy booking_name (guest_name, guest_id, booking_id, reserved_start, reserved_end, guest_rating, host_id, host_name, listing_id, adults, children, infants) from 'bookingName.csv' with header=true;
 
@@ -120,14 +120,14 @@ let writeCsv = (writer, encoding, cb) => {
           let children = Math.floor(Math.random() * 6);
 
           let bookingData = `${booking_id}, ${listing_id}, ${reserved_start}, ${reserved_end}, ${guest_id}, ${guest_name}, ${host_id}, ${host_name}, ${adults}, ${children}, ${infants}\n`;
-          let bookingNameData = `${guest_name}, ${guest_id}, ${booking_id}, ${reserved_start}, ${reserved_end}, ${guest_rating}, ${host_id}, ${host_name}, ${listing_id}, ${adults}, ${children}, ${infants}\n`;
-          let guestData = `${guest_id}, ${guest_name}, ${guest_rating}\n`;
-          let guestNameData = `${guest_name}, ${guest_id}\n`;
+          // let bookingNameData = `${guest_name}, ${guest_id}, ${booking_id}, ${reserved_start}, ${reserved_end}, ${guest_rating}, ${host_id}, ${host_name}, ${listing_id}, ${adults}, ${children}, ${infants}\n`;
+          // let guestData = `${guest_id}, ${guest_name}, ${guest_rating}\n`;
+          // let guestNameData = `${guest_name}, ${guest_id}\n`;
 
-          bookingNameWriter.write(bookingNameData, encoding, cb);
+          // bookingNameWriter.write(bookingNameData, encoding, cb);
           bookingWriter.write(bookingData, encoding, cb);
-          guestWriter.write(guestData, encoding, cb);
-          guestNameWriter.write(guestNameData, encoding, cb);
+          // guestWriter.write(guestData, encoding, cb);
+          // guestNameWriter.write(guestNameData, encoding, cb);
         }
       } else {
         let listingData = `${listing_id}, ${host_id}, ${host_name}, ${cost_per_night}, ${listing_rating}, ${cancellation_policy}, ${smoking_allowed}, ${pets_allowed}, ${max_guests}, ${reviews_count}, ${cleaning_fee}, ${service_fee}, ${occupancy_fee}\n`;
@@ -144,14 +144,14 @@ let writeCsv = (writer, encoding, cb) => {
           let children = Math.floor(Math.random() * 6);
 
           let bookingData = `${booking_id}, ${listing_id}, ${reserved_start}, ${reserved_end}, ${guest_id}, ${guest_name}, ${host_id}, ${host_name}, ${adults}, ${children}, ${infants}\n`;
-          let bookingNameData = `${guest_name}, ${guest_id}, ${booking_id}, ${reserved_start}, ${reserved_end}, ${guest_rating}, ${host_id}, ${host_name}, ${listing_id}, ${adults}, ${children}, ${infants}\n`;
-          let guestData = `${guest_id}, ${guest_name}, ${guest_rating}\n`;
-          let guestNameData = `${guest_name}, ${guest_id}\n`;
+          // let bookingNameData = `${guest_name}, ${guest_id}, ${booking_id}, ${reserved_start}, ${reserved_end}, ${guest_rating}, ${host_id}, ${host_name}, ${listing_id}, ${adults}, ${children}, ${infants}\n`;
+          // let guestData = `${guest_id}, ${guest_name}, ${guest_rating}\n`;
+          // let guestNameData = `${guest_name}, ${guest_id}\n`;
 
-          bookingNameWriter.write(bookingNameData, encoding);
+          // bookingNameWriter.write(bookingNameData, encoding);
           bookingWriter.write(bookingData, encoding);
-          guestWriter.write(guestData, encoding);
-          guestNameWriter.write(guestNameData, encoding);
+          // guestWriter.write(guestData, encoding);
+          // guestNameWriter.write(guestNameData, encoding);
         }
       }
     } while (i > 0 && ok);
@@ -162,8 +162,8 @@ let writeCsv = (writer, encoding, cb) => {
   write();
 };
 
-writeCsv(scheduleWriter, "utf-8", () => {
-  scheduleWriter.end();
+writeCsv(bookingWriter, "utf-8", () => {
+  bookingWriter.end();
 });
 
 // table creation command:
