@@ -10,7 +10,7 @@
     "build": "webpack --watch",
     "react-dev": "webpack-dev-server --watch",
     "test": "jest --config ./jest.config.json",
-    "write-cass": "node --max_old_space_size=16000 ./db/cassandraSeed2.js",
+    "write-cass": "node --max_old_space_size=16000 ./db/cassandraSeed.js",
     "write-listing": "node --max_old_space_size=14000 ./db/listingWriter.js",
     "write-booking": "node --max_old_space_size=14000 ./db/bookingWriter.js",
     "write-user": "node --max_old_space_size=14000 ./db/userWriter.js"
