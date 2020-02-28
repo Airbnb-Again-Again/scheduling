@@ -19,9 +19,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "../client", "dist")));
 
 // Add one booking to a listing by listing id
-app.post("/api/listings/listing_id/:booking_id", (req, res) => {
-  console.log(req.params.booking_id);
-  addBooking(req.params.booking_id, result => {
+app.post("/api/listings/:listing_id/add_booking", (req, res) => {
+  console.log(req.params.listing_id);
+  addBooking(req.params.listing_id, result => {
     res.send("good job :)");
   });
 });
