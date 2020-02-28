@@ -33,7 +33,7 @@ bookingNameWriter.write(
   "guest_name, guest_id, booking_id, reserved_start, reserved_end, guest_rating, host_id, host_name, listing_id, adults, children, infants\n",
   "utf8"
 );
-// create table booking_name (guest_name text, guest_id int, booking_id int, listing_id int, reserved_start text, reserved_end text, host_id int, host_name text, guest_rating float, adults int, children int, infants int, primary key (guest_name, reserved_start, host_name));
+// create table booking_name (guest_name text, guest_id int, booking_id int, listing_id int, reserved_start text, reserved_end text, host_id int, host_name text, guest_rating float, adults int, children int, infants int, primary key (guest_id, reserved_start, host_name));
 // copy booking_name (guest_name, guest_id, booking_id, reserved_start, reserved_end, guest_rating, host_id, host_name, listing_id, adults, children, infants) from 'bookingName.csv' with header=true;
 
 const listingWriter = fs.createWriteStream("../listing.csv");
