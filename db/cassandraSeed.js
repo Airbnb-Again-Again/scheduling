@@ -64,7 +64,7 @@ let generateNewReservedDates = () => {
   }
 };
 let writeCsv = (writer, encoding, cb) => {
-  let i = 1000;
+  let i = 10000000;
   let id = 0;
 
   let write = () => {
