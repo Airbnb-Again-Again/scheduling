@@ -134,19 +134,7 @@ const addBooking = (bookingId, cb) => {
   let query =
     `INSERT INTO booking (booking_id, listing_id, guest_id, guest_name, host_id, host_name, adults, children, infants, reserved_start, reserved_end)` +
     //` VALUES (${bookingId},${randomData.listing_id()}, ${randomData.guest_id()}, '${randomData.guest_name()}', ${randomData.host_id()}, '${randomData.host_name()}', ${randomData.adults()}, ${randomData.children()}, ${randomData.infants()}, '${randomData.reserved_start()}', '${randomData.reserved_end()}')`;
-    VALUES(
-      1324123,
-      2112443,
-      124124,
-      "Kev G",
-      "1241244",
-      "KGizzle",
-      3,
-      4,
-      5,
-      "02/28/2020",
-      "02/29/2020"
-    );
+    `VALUES(${bookingId},2112443,124124,"Kev G","1241244","KGizzle",3,4,5,"02/28/2020","02/29/2020")`;
   // INSERT INTO booking_name (guest_name, guest_id, booking_id, reserved_start, reserved_end, guest_rating, host_id, host_name, listing_id, adults, children, infants) VALUES ()
   // `INSERT INTO listing (booking_id, host_id, listing_id, cancellation_policy, smoking_allowed, pets_allowed, cost_per_night, reviews_count, guest_name, rating_score, reserved_start, reserved_end, max_guests, cleaning_fee, service_fee, occupancy_fee, adults, children, infants) VAlUES (444444444, 4444444, 4444444, 'strict', 'true', 'true', 199, 444, 'Kevin G', 4.44, ${date[0]}, ${dates[dates.length - 1]}, 4, 44, 44, 44, 4, 4, 4)`;
   client
