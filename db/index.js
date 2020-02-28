@@ -134,7 +134,7 @@ const addBooking = (bookingId, cb) => {
   let query =
     `INSERT INTO booking (booking_id, listing_id, guest_id, guest_name, host_id, host_name, adults, children, infants, reserved_start, reserved_end)` +
     //` VALUES (${bookingId},${randomData.listing_id()}, ${randomData.guest_id()}, '${randomData.guest_name()}', ${randomData.host_id()}, '${randomData.host_name()}', ${randomData.adults()}, ${randomData.children()}, ${randomData.infants()}, '${randomData.reserved_start()}', '${randomData.reserved_end()}')`;
-    `VALUES(${bookingId}, 2112443, 124124, "Kev G", 1241244, "KGizzle", 3, 4, 5, "02/28/2020", "02/29/2020");`;
+    `VALUES (${bookingId}, 2112443, 124124, "Kev G", 1241244, "KGizzle", 3, 4, 5, "02/28/2020", "02/29/2020");`;
   client
     .execute(query)
     .then(result => {
