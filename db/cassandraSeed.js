@@ -3,6 +3,8 @@ const path = require("path");
 const moment = require("moment");
 const faker = require("faker");
 
+// CREATE KEYSPACE sdc WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};
+
 // const scheduleWriter = fs.createWriteStream("../cassandra.csv");
 // scheduleWriter.write(
 //   "booking_id, host_id, listing_id, cancellation_policy, smoking_allowed, pets_allowed, cost_per_night, reviews_count, guest_name, listing_rating, reserved_start, reserved_end, max_guests,  $reviews_count}cleaning_fee, service_fee, occupancy_fee, adults, children, infants\n",
@@ -64,7 +66,7 @@ let generateNewReservedDates = () => {
   }
 };
 let writeCsv = (writer, encoding, cb) => {
-  let i = 10000000;
+  let i = 5000000;
   let id = 0;
 
   let write = () => {
