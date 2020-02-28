@@ -3,11 +3,10 @@ const moment = require("moment");
 const { Client, auth } = require("cassandra-driver");
 const client = new Client({
   // 127.0.0.1:9042
-  contactPoints: ["127.0.0.1:9042"],
+  contactPoints: ["54.193.82.18:9042"],
   //protocolOptions: { port: 9042 },
-  localDataCenter: "datacenter1",
-  keyspace: "sdc",
-  authProvider: new auth.PlainTextAuthProvider("cassandra", "cassandra")
+  localDataCenter: "us-west",
+  keyspace: "sdc"
 });
 const faker = require("faker");
 
