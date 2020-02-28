@@ -8,7 +8,7 @@ const {
   readAllBookings
 } = require("../db/index.js");
 
-const port = 3000;
+const port = "3001";
 
 let app = express();
 

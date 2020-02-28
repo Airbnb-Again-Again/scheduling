@@ -64,7 +64,7 @@ let generateNewReservedDates = () => {
   }
 };
 let writeCsv = (writer, encoding, cb) => {
-  let i = 10000;
+  let i = 1000000;
   let id = 0;
 
   let write = () => {
@@ -73,7 +73,7 @@ let writeCsv = (writer, encoding, cb) => {
       generateNewReservedDates();
     }
     do {
-      let randomAmountOfTrips = Math.floor(Math.random() * Math.floor(13) + 1);
+      let randomAmountOfTrips = Math.floor(Math.random() * Math.floor(6) + 1);
       i -= 1;
       id++;
       let host_name = faker.name.findName();

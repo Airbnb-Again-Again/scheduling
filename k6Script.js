@@ -11,7 +11,7 @@ export let options = {
 export default function() {
   let randomNum = Math.floor(Math.random() * 1000000);
   let res = http.post(
-    `http://localhost:3000/api/listings/listing_id/${randomNum}`
+    `http://13.57.35.247:3001/api/listings/listing_id/${randomNum}`
   );
   check(res, {
     "is status 200": r => r.status === 200,
