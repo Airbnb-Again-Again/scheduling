@@ -76,16 +76,14 @@ let writeCsv = (writer, encoding, cb) => {
       let randomAmountOfTrips = Math.floor(Math.random() * Math.floor(13) + 1);
       i -= 1;
       id++;
-      if (i / 1000 === 0) {
-        console.log("entry number: ", i);
-      }
       let host_name = faker.name.findName();
       let host_id = Math.floor(Math.random() * 100000000);
       let booking_id = id;
+      let listing_id = i;
       let cost_per_night = [99, 89, 79, 110, 99, 149, 199, 299, 89, 119][
         Math.floor(Math.random() * Math.floor(9))
       ];
-      let listing_id = Math.round(id / 2 + Math.floor(Math.random() * 100000));
+
       let reviews_count = Math.round(Math.random() * Math.floor(500));
       let listing_rating = (4 + Math.random(5)).toFixed(2);
       let guest_rating = (4 + Math.random(5)).toFixed(2);
