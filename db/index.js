@@ -3,7 +3,7 @@ const moment = require("moment");
 const { Client, auth } = require("cassandra-driver");
 const client = new Client({
   // 127.0.0.1:9042
-  contactPoints: ["54.193.82.18:9042"],
+  contactPoints: ["54.67.4.26"],
   //protocolOptions: { port: 9042 },
   localDataCenter: "us-west",
   keyspace: "sdc"
